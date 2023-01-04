@@ -1,0 +1,35 @@
+#{% if question_list %}
+	<ul>
+	{% for question in question_list %}
+		<li><a href="{% url 'pybo:detail' question.id%}">{{ question.subject }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>질문이 없습니다.</p>
+{% endif %}
+
+
+
+def question_create(request):
+	"""
+	pybo 질문 등록
+	"""
+-----------------------------------------------------------------------
+form = QuestionForm()
+	return render(request, 'pybo/question_form.html', {'form':form})-----------------views.py
+
+
+---------------------------------------------------------------------
+{{ form.as_p }}-----------templates-question_form.html
+-------------------------------------------------------------
+question.answer_set.create(content=request.POST.get('content'), create_date=timezone.now())
+	return redirect('pybo:detail', question_id=question.id)-----def answer_creat ///pybo-views.py
+
+(캐쉬백,포인트적립,카드사용)(푸드,쇼핑,문화/여가,뷰티/헬스, 교육/육아,여행/숙박, 자동차/교통,간편결제,모든가맹점)
+
+
+
+(생애주기그래프에 따른 )나이:
+(청년기,중년기,장년기, 황금기,노년기)
+20~27(대학생),27~33(사회초년생 or 직장인),34~59(가정을 이룸) 60~(은퇴)90~(노년기)
+
